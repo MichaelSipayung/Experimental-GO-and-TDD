@@ -1,9 +1,12 @@
 // testmain.go : unit testing for main.go
 package main
+
 //generate unit test for main.go
 import (
+	"encoding/binary"
 	"testing"
 )
+
 //test for isEven function
 func TestIsEven(t *testing.T){
 	//test case 1
@@ -87,6 +90,7 @@ func TestExceedMax(t *testing.T){
 		}
 	})
 }
+//test for succesSave function
 func TestSuccesSave(t *testing.T){
 	//test case 1
 	var file_name = "main.go"
@@ -104,6 +108,28 @@ func TestSuccesSave(t *testing.T){
 			t.Error("mailer.go is not saved")
 		}else{
 			t.Log("mailer.go is not saved")
+		}
+	})
+}
+//test binary search function
+func TestBinarySearch(t *testing.T){
+	item:="abillrstuv";
+	low:=0;
+	high:=len(item)-1;
+	//test case 1
+	t.Run("Binary search for a", func(t *testing.T){
+		if(binarySearch(item,low,high,'a')!=0){
+			t.Error("Binary search for \"(a)\"")
+		}else{
+			t.Log("Passed : Binary search for a")
+		}
+	})
+	//test case 2
+	t.Run("Binary searh for \"(d)\"", func (t *testing.T)  {
+		if(binarySearch(item,low,high,'d')){
+			t.Error("Binary search for \"(d)\"")
+		}else{
+			t.Log("Passed : search for \"(d)\"")
 		}
 	})
 }

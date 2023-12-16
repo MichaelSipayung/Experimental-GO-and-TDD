@@ -44,3 +44,13 @@ func succesSave(file_name string) bool{
 	}
 	return false
 }
+//binarySearch : performing binary search algorithm
+func binarySearch(item string, low uint, high uint){
+	middle := (low + (high-low)/2)
+	for low<high{
+		middle := low + (high-low)/2
+		if low < middle{
+			high := middle
+		}
+	}
+}
